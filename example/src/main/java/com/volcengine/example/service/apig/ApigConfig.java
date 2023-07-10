@@ -46,6 +46,34 @@ public class ApigConfig {
                     }
                 }
             ));
+            put(ApigConst.CreateRoute, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.CreateRoute));
+                                    add(new BasicNameValuePair("Version", "2022-11-12"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(ApigConst.CreateUpstream, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.CreateUpstream));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }
