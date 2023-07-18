@@ -2,9 +2,11 @@ package com.volcengine.example.service.apig;
 
 import com.volcengine.example.model.request.CreateRouteRequest;
 import com.volcengine.example.model.request.CreateUpstreamRequest;
+import com.volcengine.example.model.request.GetJwtTokenRequest;
 import com.volcengine.example.model.request.ListGatewaysRequest;
 import com.volcengine.example.model.response.CreateRouteResponse;
 import com.volcengine.example.model.response.CreateUpstreamResponse;
+import com.volcengine.example.model.response.GetJwtTokenResponse;
 import com.volcengine.example.model.response.ListGatewaysResponse;
 import com.volcengine.service.IBaseService;
 
@@ -35,4 +37,13 @@ public interface IApigService extends IBaseService {
      * @throws Exception the exception
      */
     CreateRouteResponse createRoute(CreateRouteRequest createRouteRequest) throws Exception;
+
+    /**
+     * get jwt token.
+     *
+     * @param getJwtTokenRequest the get jwt token request
+     * @return the get jwt token response
+     * @throws Exception the exception
+     */
+    GetJwtTokenResponse getJwtToken(GetJwtTokenRequest getJwtTokenRequest) throws Exception;
 }

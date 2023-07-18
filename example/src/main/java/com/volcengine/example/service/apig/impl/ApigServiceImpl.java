@@ -5,16 +5,16 @@ import com.volcengine.error.SdkError;
 import com.volcengine.example.helper.ApigConst;
 import com.volcengine.example.model.request.CreateRouteRequest;
 import com.volcengine.example.model.request.CreateUpstreamRequest;
+import com.volcengine.example.model.request.GetJwtTokenRequest;
 import com.volcengine.example.model.request.ListGatewaysRequest;
 import com.volcengine.example.model.response.CreateRouteResponse;
 import com.volcengine.example.model.response.CreateUpstreamResponse;
+import com.volcengine.example.model.response.GetJwtTokenResponse;
 import com.volcengine.example.model.response.ListGatewaysResponse;
 import com.volcengine.example.service.apig.ApigConfig;
 import com.volcengine.example.service.apig.IApigService;
-import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.billing.ListBillResponse;
 import com.volcengine.service.BaseServiceImpl;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class ApigServiceImpl extends BaseServiceImpl implements IApigService {
 
     @Override
     public ListGatewaysResponse listGateways(ListGatewaysRequest listGatewaysRequest) throws Exception {
-        RawResponse response = query(ApigConst.ListGateways, Utils.mapToPairList(Utils.paramsToMap(listGatewaysRequest)));
+        RawResponse response = json(ApigConst.ListGateways, new ArrayList<>(), JSON.toJSONString(listGatewaysRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -56,5 +56,15 @@ public class ApigServiceImpl extends BaseServiceImpl implements IApigService {
         }
 
         return JSON.parseObject(response.getData(), CreateRouteResponse.class);
+    }
+
+    @Override
+    public GetJwtTokenResponse getJwtToken(GetJwtTokenRequest getJwtTokenRequest) throws Exception {
+        RawResponse response = json(ApigConst.GetJwtToken, new ArrayList<>(), JSON.toJSONString(getJwtTokenRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetJwtTokenResponse.class);
     }
 }

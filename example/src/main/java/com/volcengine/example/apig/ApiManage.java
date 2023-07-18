@@ -4,9 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.volcengine.example.helper.ApigConst;
 import com.volcengine.example.model.request.CreateRouteRequest;
 import com.volcengine.example.model.request.CreateUpstreamRequest;
+import com.volcengine.example.model.request.GetJwtTokenRequest;
 import com.volcengine.example.model.request.ListGatewaysRequest;
 import com.volcengine.example.model.response.CreateRouteResponse;
 import com.volcengine.example.model.response.CreateUpstreamResponse;
+import com.volcengine.example.model.response.GetJwtTokenResponse;
 import com.volcengine.example.model.response.ListGatewaysResponse;
 import com.volcengine.example.service.apig.IApigService;
 import com.volcengine.example.service.apig.impl.ApigServiceImpl;
@@ -83,6 +85,18 @@ public class ApiManage {
             createRouteRequest.setUpstreamList(upstreamList);
             CreateRouteResponse createRouteResponse = apigService.createRoute(createRouteRequest);
             System.out.println(JSON.toJSONString(createRouteResponse));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void GetJwtToken() {
+        try {
+            GetJwtTokenRequest getJwtTokenRequest = new GetJwtTokenRequest();
+            getJwtTokenRequest.setServiceId("scir2u57r98jh2f2bgc9g");
+            getJwtTokenRequest.setGatewayId("gciqia7vr98jh2f2bgbrg");
+            GetJwtTokenResponse getJwtTokenResponse = apigService.getJwtToken(getJwtTokenRequest);
+            System.out.println(JSON.toJSONString(getJwtTokenResponse));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -46,6 +46,20 @@ public class ApigConfig {
                     }
                 }
             ));
+            put(ApigConst.GetJwtToken, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.GetJwtToken));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(ApigConst.CreateRoute, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

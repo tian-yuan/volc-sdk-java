@@ -3,6 +3,7 @@ package com.volcengine.example.helper;
 public class ApigConst {
 
     public static final String ListGateways = "ListGateways";
+    public static final String GetJwtToken = "GetJwtToken";
 
     // route
     public static final String CreateRoute = "CreateRoute";
