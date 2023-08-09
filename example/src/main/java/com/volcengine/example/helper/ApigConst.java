@@ -1,7 +1,8 @@
 package com.volcengine.example.helper;
 
 public class ApigConst {
-
+    public static final String VersionV1 = "2021-03-03";
+    public static final String VersionV2 = "2022-11-12";
     public static final String ListGateways = "ListGateways";
     public static final String GetJwtToken = "GetJwtToken";
 
