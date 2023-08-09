@@ -19,7 +19,11 @@ import java.util.stream.Stream;
 public class ApigConfig {
     public static String[][] apiActionVersionInfoList = new String[][]{
             // gateway
+            {ApigConst.CreateGateway, ApigConst.VersionV1},
+            {ApigConst.GetGateway, ApigConst.VersionV1},
             {ApigConst.ListGateways, ApigConst.VersionV1},
+            {ApigConst.DeleteGateway, ApigConst.VersionV1},
+            {ApigConst.CheckGatewayExist, ApigConst.VersionV1},
 
             // gateway service
             {ApigConst.CreateGatewayService, ApigConst.VersionV1},
@@ -33,10 +37,41 @@ public class ApigConfig {
             {ApigConst.GetJwtToken, ApigConst.VersionV1},
 
             // route
-            {ApigConst.CreateRoute, ApigConst.VersionV1},
+            {ApigConst.CreateRoute, ApigConst.VersionV2},
+            {ApigConst.UpdateRoute, ApigConst.VersionV2},
+            {ApigConst.DeleteRoute, ApigConst.VersionV2},
+            {ApigConst.GetRoute, ApigConst.VersionV2},
+            {ApigConst.ListRoutes, ApigConst.VersionV2},
+            {ApigConst.CheckRouteExist, ApigConst.VersionV2},
+            {ApigConst.CheckPortExist, ApigConst.VersionV1},
 
             // upstream
             {ApigConst.CreateUpstream, ApigConst.VersionV1},
+            {ApigConst.CheckBackendUsed, ApigConst.VersionV1},
+            {ApigConst.ListUpstreams, ApigConst.VersionV1},
+            {ApigConst.GetUpstream, ApigConst.VersionV1},
+            {ApigConst.DeleteUpstream, ApigConst.VersionV1},
+            {ApigConst.UpdateUpstream, ApigConst.VersionV1},
+            {ApigConst.CheckUpstreamExist, ApigConst.VersionV1},
+            {ApigConst.UpdateUpstreamVersion, ApigConst.VersionV1},
+            {ApigConst.CreateUpstreamVersion, ApigConst.VersionV1},
+            {ApigConst.DeleteUpstreamVersion, ApigConst.VersionV1},
+            {ApigConst.CheckUpstreamVersionExist, ApigConst.VersionV1},
+            {ApigConst.CheckUpstreamSpecExist, ApigConst.VersionV1},
+
+            // upstream source
+            {ApigConst.CreateUpstreamSource, ApigConst.VersionV1},
+            {ApigConst.ListUpstreamSources, ApigConst.VersionV1},
+            {ApigConst.GetUpstreamSource, ApigConst.VersionV1},
+            {ApigConst.DeleteUpstreamSource, ApigConst.VersionV1},
+            {ApigConst.UpdateUpstreamSource, ApigConst.VersionV1},
+
+            // cert
+            {ApigConst.CreateCertificate, ApigConst.VersionV1},
+            {ApigConst.DeleteCertificate, ApigConst.VersionV1},
+            {ApigConst.ListCertificates, ApigConst.VersionV1},
+            {ApigConst.GetCertificate, ApigConst.VersionV1},
+            {ApigConst.CheckCertificateExist, ApigConst.VersionV1},
     };
     public static ServiceInfo serviceInfo = new ServiceInfo(
         new HashMap<String, Object>() {
