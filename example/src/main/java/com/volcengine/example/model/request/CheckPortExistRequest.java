@@ -4,9 +4,9 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data
-public class CheckGatewayServiceExist {
-    @JSONField(name = "Name")
-    String name;
+public class CheckPortExistRequest {
+    @JSONField(name = "Port")
+    Integer port;
     @JSONField(name = "GatewayId")
     String gatewayId;
 }

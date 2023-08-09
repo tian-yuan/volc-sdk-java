@@ -4,7 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 @Data
-public class DeleteGatewayService {
+public class DeleteGatewayServiceRequest {
     @JSONField(name = "Id")
     String id;
 }

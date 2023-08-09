@@ -1,24 +1,21 @@
 package com.volcengine.example.model.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import java.util.List;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class CreateRouteRequest {
+public class UpdateRouteRequest {
     @JSONField(name = "Name")
     String name;
-    @JSONField(name = "ServiceId")
-    String serviceId;
+    @JSONField(name = "Id")
+    String id;
     @JSONField(name = "MatchRule")
     MatchRule matchRule;
     @JSONField(name = "UpstreamList")
     List<Upstream> upstreamList;
     @JSONField(name = "AdvancedSetting")
     AdvancedSetting advancedSetting;
-    @JSONField(name = "ResourceType")
-    String resourceType;
 
     @Data
     public static class MatchRule {
