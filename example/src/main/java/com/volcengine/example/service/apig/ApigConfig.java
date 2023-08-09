@@ -46,6 +46,93 @@ public class ApigConfig {
                     }
                 }
             ));
+            // GatewayService Api Info
+            put(ApigConst.CreateGatewayService, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.CreateGatewayService));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(ApigConst.UpdateGatewayService, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.UpdateGatewayService));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(ApigConst.GetGatewayService, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.GetGatewayService));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(ApigConst.ListGatewayServices, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.ListGatewayServices));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(ApigConst.DeleteGatewayService, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.DeleteGatewayService));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(ApigConst.CheckGatewayServiceExist, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new org.apache.http.message.BasicNameValuePair("Action", ApigConst.CheckGatewayServiceExist));
+                                    add(new BasicNameValuePair("Version", "2021-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // auth
             put(ApigConst.GetJwtToken, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -60,6 +147,8 @@ public class ApigConfig {
                         }
                     }
             ));
+
+            // route
             put(ApigConst.CreateRoute, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

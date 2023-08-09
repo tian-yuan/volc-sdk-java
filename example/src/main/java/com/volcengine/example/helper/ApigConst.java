@@ -5,6 +5,14 @@ public class ApigConst {
     public static final String ListGateways = "ListGateways";
     public static final String GetJwtToken = "GetJwtToken";
 
+    // gateway service
+    public static final String CreateGatewayService = "CreateGatewayService";
+    public static final String UpdateGatewayService = "UpdateGatewayService";
+    public static final String GetGatewayService = "GetGatewayService";
+    public static final String ListGatewayServices = "ListGatewayServices";
+    public static final String DeleteGatewayService = "DeleteGatewayService";
+    public static final String CheckGatewayServiceExist = "CheckGatewayServiceExist";
+
     // route
     public static final String CreateRoute = "CreateRoute";
     public static final String MatchTypeExact = "Exact";
