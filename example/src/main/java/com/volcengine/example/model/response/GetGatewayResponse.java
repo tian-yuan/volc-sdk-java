@@ -38,7 +38,7 @@ public class GetGatewayResponse {
         @JSONField(name = "ResourceSpec")
         ResourceSpec resourceSpec;
         @JSONField(name = "Labels")
-        Labels labels;
+        List<Label> labels;
     }
 
     @Data
@@ -68,7 +68,7 @@ public class GetGatewayResponse {
     }
 
     @Data
-    public static class Labels {
+    public static class Label {
         @JSONField(name = "Name")
         String name;
         @JSONField(name = "Value")

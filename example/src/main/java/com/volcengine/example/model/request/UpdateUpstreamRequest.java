@@ -1,16 +1,15 @@
 package com.volcengine.example.model.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import java.util.List;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class CreateUpstreamRequest {
+public class UpdateUpstreamRequest {
     @JSONField(name = "Name")
     String name;
-    @JSONField(name = "GatewayId")
-    String gatewayId;
+    @JSONField(name = "Id")
+    String id;
     @JSONField(name = "Comments")
     String comments;
     @JSONField(name = "SourceType")
