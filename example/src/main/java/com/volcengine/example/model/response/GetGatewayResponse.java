@@ -11,7 +11,7 @@ public class GetGatewayResponse {
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    GetJwtTokenResponse.ResultBean result;
+    GetGatewayResponse.ResultBean result;
 
     @Data
     public static class ResultBean {

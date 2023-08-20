@@ -1,15 +1,12 @@
 package com.volcengine.example.apig;
 
 import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.volcengine.example.helper.ApigConst;
-import com.volcengine.example.model.request.CreateRouteRequest;
-import com.volcengine.example.model.request.CreateUpstreamRequest;
-import com.volcengine.example.model.request.GetJwtTokenRequest;
-import com.volcengine.example.model.request.ListGatewaysRequest;
-import com.volcengine.example.model.response.CreateRouteResponse;
-import com.volcengine.example.model.response.CreateUpstreamResponse;
-import com.volcengine.example.model.response.GetJwtTokenResponse;
-import com.volcengine.example.model.response.ListGatewaysResponse;
+import com.volcengine.example.model.request.*;
+import com.volcengine.example.model.response.*;
 import com.volcengine.example.service.apig.IApigService;
 import com.volcengine.example.service.apig.impl.ApigServiceImpl;
 
@@ -28,13 +25,40 @@ public class ApiManage {
         this.apigService = apigService;
     }
 
+    public void printJsonPretty(Object o) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        System.out.println(gson.toJson(o));
+    }
+
     public void ListGateways() {
         try {
             ListGatewaysRequest listGatewaysRequest = new ListGatewaysRequest();
             listGatewaysRequest.setPageNumber(1);
             listGatewaysRequest.setPageSize(10);
             ListGatewaysResponse listGatewaysResponse = apigService.listGateways(listGatewaysRequest);
-            System.out.println(JSON.toJSONString(listGatewaysResponse));
+            printJsonPretty(listGatewaysResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void GetGateway() {
+        try{
+            GetGatewayRequest getGatewayRequest = new GetGatewayRequest();
+            getGatewayRequest.setId("gcjfgrvsn575hmngb887g");
+            GetGatewayResponse getGatewayResponse = apigService.getGateway(getGatewayRequest);
+            printJsonPretty(getGatewayResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void CheckGatewayExist() {
+        try{
+            CheckGatewayExistRequest checkGatewayExistRequest = new CheckGatewayExistRequest();
+            checkGatewayExistRequest.setName("gateway-2lq8rkknzt");
+            CheckGatewayExistResponse checkGatewayExistResponse = apigService.checkGatewayExist(checkGatewayExistRequest);
+            printJsonPretty(checkGatewayExistResponse);
         } catch (Exception e) {
             e.printStackTrace();
         }
