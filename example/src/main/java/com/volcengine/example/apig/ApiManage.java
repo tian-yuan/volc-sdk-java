@@ -15,9 +15,15 @@ import java.util.List;
 
 public class ApiManage {
     private IApigService apigService;
+    private String testAk = "AKLTMTZkMzJiZjhiYTI3NDllODkzN2FiOTYzYTE2YzI5OTM";
+    private String testSk = "WlRsaE5qZGlNakJtTTJVNE5EQTBaamt5TkRNeU1HWmlNemcxWVRVNE5qZw==";
+
+    private String gatewayId = "gcjfgrvsn575hmngb887g";
+    private String upstreamId = "ucjfh334n575hmngb88bg";
+    private String upstreamSourceId = "uscjfgrvsn575hmngb8880";
+    private String certId = "ccjfkk5moul8vujtra960";
+
     ApiManage() {
-        String testAk = "AKLTMTZkMzJiZjhiYTI3NDllODkzN2FiOTYzYTE2YzI5OTM";
-        String testSk = "WlRsaE5qZGlNakJtTTJVNE5EQTBaamt5TkRNeU1HWmlNemcxWVRVNE5qZw==";
 
         IApigService apigService = ApigServiceImpl.getInstance();
         apigService.setAccessKey(testAk);
@@ -79,7 +85,51 @@ public class ApiManage {
             upstreamSpec.setFixedIPList(fixedIPList);
             createUpstreamRequest.setUpstreamSpec(upstreamSpec);
             CreateUpstreamResponse createUpstreamResponse = apigService.createUpstream(createUpstreamRequest);
-            System.out.println(JSON.toJSONString(createUpstreamResponse));
+            printJsonPretty(createUpstreamResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ListUpstreams() {
+        try {
+            ListUpstreamsRequest listUpstreamsRequest = new ListUpstreamsRequest();
+            listUpstreamsRequest.setGatewayId(gatewayId);
+            ListUpstreamsResponse listUpstreamsResponse = apigService.listUpstreams(listUpstreamsRequest);
+            printJsonPretty(listUpstreamsResponse);
+        }  catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void GetUpstream() {
+        try {
+            GetUpstreamRequest getUpstreamRequest = new GetUpstreamRequest();
+            getUpstreamRequest.setId(upstreamId);
+            GetUpstreamResponse getUpstreamResponse = apigService.getUpstream(getUpstreamRequest);
+            printJsonPretty(getUpstreamResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ListUpstreamSources() {
+        try {
+            ListUpstreamSourcesRequest listUpstreamSourcesRequest = new ListUpstreamSourcesRequest();
+            listUpstreamSourcesRequest.setGatewayId(gatewayId);
+            ListUpstreamSourcesResponse listUpstreamSourcesResponse = apigService.listUpstreamSources(listUpstreamSourcesRequest);
+            printJsonPretty(listUpstreamSourcesResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void GetUpstreamSource() {
+        try {
+            GetUpstreamSourceRequest getUpstreamSourceRequest = new GetUpstreamSourceRequest();
+            getUpstreamSourceRequest.setId(upstreamSourceId);
+            GetUpstreamSourceResponse getUpstreamSourceResponse = apigService.getUpstreamSource(getUpstreamSourceRequest);
+            printJsonPretty(getUpstreamSourceResponse);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,7 +158,7 @@ public class ApiManage {
             upstreamList.add(upstream);
             createRouteRequest.setUpstreamList(upstreamList);
             CreateRouteResponse createRouteResponse = apigService.createRoute(createRouteRequest);
-            System.out.println(JSON.toJSONString(createRouteResponse));
+            printJsonPretty(createRouteResponse);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -120,7 +170,28 @@ public class ApiManage {
             getJwtTokenRequest.setServiceId("scir2u57r98jh2f2bgc9g");
             getJwtTokenRequest.setGatewayId("gciqia7vr98jh2f2bgbrg");
             GetJwtTokenResponse getJwtTokenResponse = apigService.getJwtToken(getJwtTokenRequest);
-            System.out.println(JSON.toJSONString(getJwtTokenResponse));
+            printJsonPretty(getJwtTokenResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ListCertificates() {
+        try {
+            ListCertificatesRequest listCertificatesRequest = new ListCertificatesRequest();
+            ListCertificatesResponse listCertificatesResponse = apigService.listCertificates(listCertificatesRequest);
+            printJsonPretty(listCertificatesResponse);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void GetCertificate() {
+        try {
+            GetCertificateRequest getCertificateRequest = new GetCertificateRequest();
+            getCertificateRequest.setId(certId);
+            GetCertificateResponse getCertificateResponse = apigService.getCertificate(getCertificateRequest);
+            printJsonPretty(getCertificateResponse);
         } catch (Exception e) {
             e.printStackTrace();
         }
