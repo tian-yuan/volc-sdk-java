@@ -16,6 +16,12 @@ public class GetGatewayServiceResponse {
 
     @Data
     public static class ResultBean {
+        @JSONField(name = "GatewayService")
+        GetGatewayServiceResponse.GatewayService gatewayService;
+    }
+
+    @Data
+    public static class GatewayService {
         @JSONField(name = "Name")
         String name;
         @JSONField(name = "GatewayId")

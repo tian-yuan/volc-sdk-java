@@ -5,6 +5,8 @@ import lombok.Data;
 
 @Data
 public class ListGatewayServicesRequest {
+    @JSONField(name = "GatewayId")
+    String gatewayId;
     @JSONField(name = "PageNumber")
     Integer pageNumber;
     @JSONField(name = "PageSize")
